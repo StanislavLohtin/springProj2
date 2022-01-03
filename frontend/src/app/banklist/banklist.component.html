@@ -1,0 +1,7 @@
+<input type="search" placeholder="Search banks..." ngModel
+       (ngModelChange)="searchBanks(searchText.value)" #searchText="ngModel" name="searchText">
+<hr>
+<div *ngFor="let bank of banks">
+  <app-bankcard [bank]="bank"></app-bankcard>
+  <hr>
+</div>

@@ -1,11 +1,15 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {BanklistComponent} from './banklist/banklist.component';
+import {BankcardComponent} from './bankcard/bankcard.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        BanklistComponent,
+        BankcardComponent
       ],
     }).compileComponents();
   }));
@@ -26,6 +30,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to frontend!');
+    expect(compiled.querySelector('h1').textContent).toContain('Bank App');
+  });
+
+  it('should contain banklist', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-banklist')).toBeDefined();
   });
 });
